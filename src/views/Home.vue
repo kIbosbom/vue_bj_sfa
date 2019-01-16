@@ -1,8 +1,14 @@
 <template>
   <div class="home">
-    <tophead title="SFA"><router-link to="/user" slot="r" class="icon iconfont icon-user"></router-link></tophead>
+    <tophead title="SFA"
+      ><router-link
+        to="/user"
+        slot="r"
+        class="icon iconfont icon-user"
+      ></router-link
+    ></tophead>
     <div class="main-bd">
-      <div class="date-wrap">{{getYearMonth}}</div>
+      <div class="date-wrap">{{ getYearMonth }}</div>
       <div class="mp-wrap">
         <mp title="当前月进度" :val="getDayOfMonth" :percent="true"></mp>
         <mp title="月销售完成度" :val="mounthSealsPercent" :percent="true"></mp>
@@ -11,12 +17,13 @@
     </div>
     <div class="main-nav">
       <div class="nav-cell" v-for="i in 9" :key="i">
-        <template v-if="i<=menuList.length">
-          <menu-cell 
-            :url="menuList[i-1].url" 
-            :img-url="menuList[i-1].imgUrl" 
-            :menu-name="menuList[i-1].menuName">
-            </menu-cell>
+        <template v-if="i <= menuList.length">
+          <menu-cell
+            :url="menuList[i - 1].url"
+            :img-url="menuList[i - 1].imgUrl"
+            :menu-name="menuList[i - 1].menuName"
+          >
+          </menu-cell>
         </template>
       </div>
     </div>

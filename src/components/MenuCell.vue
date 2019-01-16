@@ -1,8 +1,8 @@
 <template>
   <div class="menu-cell">
     <router-link :to="url">
-      <div class="img-wrap"><img :src="imgUrl" :alt="menuName"/></div>
-      <div class="title-wrap">{{menuName}}</div>
+      <div class="img-wrap"><img :src="imgUrl" :alt="menuName" /></div>
+      <div class="title-wrap">{{ menuName }}</div>
     </router-link>
   </div>
 </template>

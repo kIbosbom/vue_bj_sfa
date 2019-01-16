@@ -1,8 +1,8 @@
 <template>
   <div class="progress">
-    <div class="label">{{val}}<span v-if="percent">%</span></div>
+    <div class="label">{{ val }}<span v-if="percent">%</span></div>
     <div class="pie-wrap" ref="pie"></div>
-    <h3>{{title}}</h3>
+    <h3>{{ title }}</h3>
   </div>
 </template>
 

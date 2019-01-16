@@ -1,10 +1,10 @@
 <template>
   <div class="tophead">
-    <div class="th-l" @click="backAction"><i class="icon iconfont icon-back"></i></div>
-    <div class="th-title">{{title}}</div>
-    <div class="th-r">
-      <slot name="r">右侧插槽</slot>
+    <div class="th-l" @click="backAction">
+      <i class="icon iconfont icon-back"></i>
     </div>
+    <div class="th-title">{{ title }}</div>
+    <div class="th-r"><slot name="r">右侧插槽</slot></div>
   </div>
 </template>
 

@@ -4,36 +4,75 @@
     <div class="top_hat"></div>
     <div class="login-box">
       <!-- logo -->
-      <div class="logo-wrap">
-        <div class="logo-box"></div>
-      </div>
+      <div class="logo-wrap"><div class="logo-box"></div></div>
       <!-- 登录的表达 -->
-      <div class="input-group" :class="{active: act_index===1, error: errors.has('cno')}">
+      <div
+        class="input-group"
+        :class="{ active: act_index === 1, error: errors.has('cno') }"
+      >
         <label for="cm_code">公司编号:</label>
-        <input name="cno" v-validate="{required:true, max: 6, min: 4}" @focus="act_index=1" type="number" id="cm_code" v-model="cm_code">
+        <input
+          name="cno"
+          v-validate="{ required: true, max: 6, min: 4 }"
+          @focus="act_index = 1"
+          type="number"
+          id="cm_code"
+          v-model="cm_code"
+        />
       </div>
-      <div class="input-group" :class="{active: act_index===2, error: errors.has('pno')}">
+      <div
+        class="input-group"
+        :class="{ active: act_index === 2, error: errors.has('pno') }"
+      >
         <label for="PNO">员工编号:</label>
-        <input @focus="act_index=2" name="pno" type="number" id="PNO" v-validate="{required:true, max: 12, min: 4}" v-model="PNO">
+        <input
+          @focus="act_index = 2"
+          name="pno"
+          type="number"
+          id="PNO"
+          v-validate="{ required: true, max: 12, min: 4 }"
+          v-model="PNO"
+        />
       </div>
-      <div class="input-group" :class="{active: act_index===3, error: errors.has('pwd')}">
+      <div
+        class="input-group"
+        :class="{ active: act_index === 3, error: errors.has('pwd') }"
+      >
         <label for="Passwd">用户密码:</label>
-        <input @focus="act_index=3" type="password" name="pwd" v-validate="{required:true, max: 12, min: 4}" id="Passwd" v-model="passwd">
+        <input
+          @focus="act_index = 3"
+          type="password"
+          name="pwd"
+          v-validate="{ required: true, max: 12, min: 4 }"
+          id="Passwd"
+          v-model="passwd"
+        />
       </div>
       <div class="ck-row">
-        <div class="ckbox_wrap" @click="remembSet" :class="{active: rememb}">
-          <i class="iconfont" :class="{'icon-check-square': rememb, 'icon-border': !rememb}"></i>
+        <div class="ckbox_wrap" @click="remembSet" :class="{ active: rememb }">
+          <i
+            class="iconfont"
+            :class="{ 'icon-check-square': rememb, 'icon-border': !rememb }"
+          ></i>
           <span>记住密码</span>
         </div>
-        <div @click="autoLoginSet" class="ckbox_wrap" :class="{active: autologin}">
-          <i class="iconfont" :class="{'icon-check-square': autologin, 'icon-border': !autologin}"></i>
+        <div
+          @click="autoLoginSet"
+          class="ckbox_wrap"
+          :class="{ active: autologin }"
+        >
+          <i
+            class="iconfont"
+            :class="{
+              'icon-check-square': autologin,
+              'icon-border': !autologin
+            }"
+          ></i>
           <span>自动登录</span>
         </div>
       </div>
     </div>
-    <div class="btn-wrap" @click="loginBtnClick">
-      <p>登录</p>
-    </div>
+    <div class="btn-wrap" @click="loginBtnClick"><p>登录</p></div>
   </div>
 </template>
 

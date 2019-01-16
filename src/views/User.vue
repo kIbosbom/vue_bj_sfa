@@ -2,7 +2,6 @@
   <div class="user">
     <tophead title="SFA"></tophead>
     <H1>user</H1>
-    
   </div>
 </template>
 
@@ -19,5 +18,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
