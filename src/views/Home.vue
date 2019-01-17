@@ -1,12 +1,9 @@
 <template>
   <div class="home">
-    <tophead title="SFA"
-      ><router-link
-        to="/user"
-        slot="r"
-        class="icon iconfont icon-user"
-      ></router-link
-    ></tophead>
+    <tophead title="SFA">
+      <router-link to="/user" slot="r" class="icon iconfont icon-user">
+      </router-link>
+    </tophead>
     <div class="main-bd">
       <div class="date-wrap">{{ getYearMonth }}</div>
       <div class="mp-wrap">
