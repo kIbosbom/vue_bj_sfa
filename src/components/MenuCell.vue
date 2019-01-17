@@ -9,8 +9,8 @@
 
 <script>
 export default {
-  name: "menucell",
-  props: ["menuName", "imgUrl", "url"],
+  name: 'menucell',
+  props: ['menuName', 'imgUrl', 'url'],
   data() {
     return {};
   }

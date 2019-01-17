@@ -1,21 +1,21 @@
 <template>
-  <div class="user">
-    <tophead title="SFA"></tophead>
-    <H1>user</H1>
+  <div class="notice">
+    <TopHead title="公司公告"> <div slot="r"></div></TopHead>
   </div>
 </template>
 
 <script>
 import TopHead from '../components/TopHead';
+
 export default {
-  name: 'user',
+  name: 'Notice',
   data() {
     return {};
   },
   components: {
-    tophead: TopHead
+    TopHead
   }
 };
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

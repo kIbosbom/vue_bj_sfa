@@ -10,8 +10,8 @@
 
 <script>
 export default {
-  name: "tophead",
-  props: ["title", "backurl"],
+  name: 'tophead',
+  props: ['title', 'backurl'],
   data() {
     return {};
   },

@@ -28,56 +28,56 @@
 </template>
 
 <script>
-import HeadTop from "../components/TopHead";
-import progress from "../components/Progress";
-import service from "../service";
-import menuCell from "../components/MenuCell";
+import HeadTop from '../components/TopHead';
+import progress from '../components/Progress';
+import service from '../service';
+import menuCell from '../components/MenuCell';
 
 const menuList = [
   {
-    menuName: "公司通告",
-    imgUrl: require("@/assets/img/gstg.png"),
-    url: "/notice"
+    menuName: '公司通告',
+    imgUrl: require('@/assets/img/gstg.png'),
+    url: '/notice'
   },
   {
-    menuName: "进店拜访",
-    imgUrl: require("@/assets/img/jdbf.png"),
-    url: "/visitshop"
+    menuName: '进店拜访',
+    imgUrl: require('@/assets/img/jdbf.png'),
+    url: '/visitshop'
   },
   {
-    menuName: "电话订单",
-    imgUrl: require("@/assets/img/dhdd.png"),
-    url: "/phoneorder"
+    menuName: '电话订单',
+    imgUrl: require('@/assets/img/dhdd.png'),
+    url: '/phoneorder'
   },
   {
-    menuName: "订单状态",
-    imgUrl: require("@/assets/img/ddzt.png"),
-    url: "/orders"
+    menuName: '订单状态',
+    imgUrl: require('@/assets/img/ddzt.png'),
+    url: '/orders'
   },
   {
-    menuName: "培训资料",
-    imgUrl: require("@/assets/img/pxzl.png"),
-    url: "/training"
+    menuName: '培训资料',
+    imgUrl: require('@/assets/img/pxzl.png'),
+    url: '/training'
   },
   {
-    menuName: "消息中心",
-    imgUrl: require("@/assets/img/xxzx.png"),
-    url: "/message"
+    menuName: '消息中心',
+    imgUrl: require('@/assets/img/xxzx.png'),
+    url: '/message'
   },
   {
-    menuName: "新增门店",
-    imgUrl: require("@/assets/img/xzmd.png"),
-    url: "/addedshop"
+    menuName: '新增门店',
+    imgUrl: require('@/assets/img/xzmd.png'),
+    url: '/addedshop'
   },
   {
-    menuName: "数据同步",
-    imgUrl: require("@/assets/img/sjtb.png"),
-    url: "/asyncdata"
+    menuName: '数据同步',
+    imgUrl: require('@/assets/img/sjtb.png'),
+    url: '/asyncdata'
   }
 ];
 
 export default {
-  name: "home",
+  name: 'home',
   components: {
     tophead: HeadTop,
     mp: progress,

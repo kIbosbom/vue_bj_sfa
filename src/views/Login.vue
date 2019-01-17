@@ -77,26 +77,26 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
-import axios from "axios";
-import { Indicator, Toast } from "mint-ui";
-import services from "../service";
+import { mapMutations } from 'vuex';
+import axios from 'axios';
+import { Indicator, Toast } from 'mint-ui';
+import services from '../service';
 
-import "../assets/font/iconfont.css";
+import '../assets/font/iconfont.css';
 export default {
-  name: "login",
+  name: 'login',
   data() {
     return {
       act_index: 1,
-      cm_code: "",
-      PNO: "",
-      passwd: "",
+      cm_code: '',
+      PNO: '',
+      passwd: '',
       rememb: false,
       autologin: false
     };
   },
   mounted() {
-    let data = JSON.parse(localStorage.getItem("Login_data"));
+    let data = JSON.parse(localStorage.getItem('Login_data'));
     if (data) {
       this.cm_code = data.CNO;
       this.passwd = data.Passwd;
@@ -111,7 +111,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(["initUser"]),
+    ...mapMutations(['initUser']),
     autoLoginSet() {
       // 设置当前的autologin为true或者false，
       this.autologin = !this.autologin;
@@ -129,7 +129,7 @@ export default {
         return;
       }
       // 弹出等待的遮罩 层,防止二次点击.
-      Indicator.open("正在登陆...");
+      Indicator.open('正在登陆...');
       // 发送ajax请求 ,  axios
       // setTimeout(() => {
       //   Indicator.close();
@@ -146,28 +146,28 @@ export default {
             // 登录成功
             // 记住用户密码
             localStorage.setItem(
-              "Login_data",
+              'Login_data',
               JSON.stringify({
                 rememb: this.rememb,
                 autologin: this.autologin,
-                PNO: this.rememb ? this.PNO : "",
-                CNO: this.rememb ? this.cm_code : "",
-                Passwd: this.rememb ? this.passwd : ""
+                PNO: this.rememb ? this.PNO : '',
+                CNO: this.rememb ? this.cm_code : '',
+                Passwd: this.rememb ? this.passwd : ''
               })
             );
             // 把当前登陆的用户信息放到 sesstionStoreage里面一份。
-            sessionStorage.setItem("LoginUser", JSON.stringify(res.data.user));
-            sessionStorage.setItem("LoginToken", res.data.token);
+            sessionStorage.setItem('LoginUser', JSON.stringify(res.data.user));
+            sessionStorage.setItem('LoginToken', res.data.token);
 
             // 把当前登陆的用户信息放到 vuex
             // this.$store.commit("initUser", res.data.user);
             this.initUser(res.data.user);
             // 跳转到home页面
-            this.$router.push("/home");
+            this.$router.push('/home');
           } else {
             // 登录失败,用户名密码不正确
             Toast({
-              message: "用户名密码不正确,登录失败!",
+              message: '用户名密码不正确,登录失败!',
               duration: 2000
             });
           }
@@ -177,7 +177,7 @@ export default {
           // console.log("登录失败!", e);
           // 登录异常失败!
           Toast({
-            message: "登录异常失败!",
+            message: '登录异常失败!',
             duration: 2000
           });
           Indicator.close();
