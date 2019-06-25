@@ -10,8 +10,11 @@
         ref="loadmore"
       >
         <ul class="notice-list">
-          <li v-for="item in NoticeList" :key="item.id">
-            <a href="#">{{ item.title }}</a>
+          <li v-for="item in NoticeList" :key="item.id" class="notice-item">
+            <a href="#">
+              <h3 class="notice-title">{{ item.title }}</h3>
+              <span class="notice-date">{{ item.SubDate}}</span>
+            </a>
           </li>
         </ul>
       </Loadmore>
@@ -74,4 +77,22 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.notice-list {
+  .notice-item {
+    // line-height: px2rem(125);
+    height: px2rem(125-32);
+    padding: px2rem(32) 0 0 px2rem(40);
+    .notice-title {
+      font-size: px2rem(28);
+      color: #000;
+      line-height: px2rem(28);
+    }
+    .notice-date {
+      font-size: px2rem(16);
+      color: #666;
+      line-height: px2rem(16+34);
+    }
+  }
+}
+</style>
