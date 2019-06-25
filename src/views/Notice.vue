@@ -12,8 +12,13 @@
         <ul class="notice-list">
           <li v-for="item in NoticeList" :key="item.id" class="notice-item">
             <a href="#">
-              <h3 class="notice-title">{{ item.title }}</h3>
-              <span class="notice-date">{{ item.SubDate}}</span>
+              <div class="notice-wrap">
+                <i class="icon iconfont icon-dian"></i>
+                <div class="notice-bd">
+                  <h3 class="notice-title">{{ item.title }}</h3>
+                  <p class="notice-date">{{ item.SubDate | dateFormat }}</p>
+                </div>
+              </div>
             </a>
           </li>
         </ul>
@@ -39,6 +44,12 @@ export default {
       // 加载数据的结束日期
       endDate: null
     };
+  },
+  filters: {
+    dateFormat(val) {
+      let d = new Date(val);
+      return `${d.getFullYear()}年 ${d.getMonth() + 1}月 ${d.getDate()}日`;
+    }
   },
   methods: {
     loadTop() {
@@ -79,10 +90,12 @@ export default {
 
 <style lang="scss" scoped>
 .notice-list {
+  background: #fff;
   .notice-item {
     // line-height: px2rem(125);
     height: px2rem(125-32);
     padding: px2rem(32) 0 0 px2rem(40);
+    border-bottom: px2rem(1) solid #ccc;
     .notice-title {
       font-size: px2rem(28);
       color: #000;
@@ -92,6 +105,15 @@ export default {
       font-size: px2rem(16);
       color: #666;
       line-height: px2rem(16+34);
+    }
+    .notice-wrap {
+      display: flex;
+      i {
+        flex: 0 0 px2rem(43);
+        color: red;
+        line-height: px2rem(20);
+        font-size: px2rem(50);
+      }
     }
   }
 }
