@@ -11,7 +11,7 @@
       >
         <ul class="notice-list">
           <li v-for="item in NoticeList" :key="item.id" class="notice-item">
-            <a href="#">
+            <router-link :to="`/notice/${item.id}`">
               <div class="notice-wrap">
                 <i class="icon iconfont icon-dian"></i>
                 <div class="notice-bd">
@@ -19,7 +19,7 @@
                   <p class="notice-date">{{ item.SubDate | dateFormat }}</p>
                 </div>
               </div>
-            </a>
+            </router-link>
           </li>
         </ul>
       </Loadmore>
