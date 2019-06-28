@@ -27,6 +27,9 @@ export default {
   getUserProgress() {
     return axios.get('/api/getUserProgress');
   },
+  setNoticeReaded(id) {
+    return axios.post(`/api/auth/notice/${id}`);
+  },
   getNotices(date, limit, isloadelater) {
     if (date) {
       date = date.getTime();

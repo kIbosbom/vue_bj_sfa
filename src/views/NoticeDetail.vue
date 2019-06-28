@@ -13,7 +13,8 @@
 
 <script>
 import TopHead from '../components/TopHead';
-import { mapState } from 'vuex';
+import Service from '../service/index';
+import { mapState, mapMutations } from 'vuex';
 export default {
   name: 'NoticeDetial',
   data() {
@@ -24,10 +25,15 @@ export default {
   computed: {
     ...mapState(['NoticeList'])
   },
+  methods: {
+    ...mapMutations(['setNoticeReaded'])
+  },
   created() {
-    this.Notice = this.NoticeList.find(
-      item => item.id == this.$route.params.id
-    );
+    const noticeId = this.$route.params.id;
+    this.Notice = this.NoticeList.find(item => item.id == noticeId);
+    // 往后台发送请求设置当前的通知为已读。
+    Service.setNoticeReaded(noticeId);
+    this.setNoticeReaded(noticeId);
   },
   components: {
     TopHead

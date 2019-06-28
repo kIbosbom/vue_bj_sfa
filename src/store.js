@@ -25,6 +25,12 @@ export default new Vuex.Store({
     pushMoreNotice(state, payload) {
       state.NoticeList.push(...payload);
       state.NoticeList = _.uniqBy(state.NoticeList, 'id');
+    },
+    setNoticeReaded(state, payload) {
+      let itemIndex = state.NoticeList.findIndex(item => item.id == payload);
+      let k = state.NoticeList[itemIndex];
+      k.isRead = true;
+      state.NoticeList.splice(itemIndex, 1, k);
     }
   },
   actions: {},
