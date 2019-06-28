@@ -31,12 +31,13 @@
 import TopHead from '../components/TopHead';
 import Service from '../service/index.js';
 import { Loadmore } from 'mint-ui';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
   name: 'Notice',
   data() {
     return {
-      NoticeList: [],
+      // NoticeList: [],
       // 是否全部加载完成了数据
       allLoaded: false,
       // 加载数据的开始日期
@@ -45,6 +46,9 @@ export default {
       endDate: null
     };
   },
+  computed: {
+    ...mapState(['NoticeList'])
+  },
   filters: {
     dateFormat(val) {
       let d = new Date(val);
@@ -52,9 +56,11 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['initNoticeList', 'unshiftMoreNotice', 'pushMoreNotice']),
     loadTop() {
       Service.getNotices(this.startDate, 10, false).then(res => {
-        this.NoticeList.unshift(...res.data.data.messages);
+        // this.NoticeList.unshift(...res.data.data.messages);
+        this.unshiftMoreNotice(res.data.data.messages);
         this.startDate = this.NoticeList[0].SubDate;
         // 加载完数据后，必须重新计算列表的高度。
         this.$refs.loadmore.onTopLoaded();
@@ -66,7 +72,8 @@ export default {
           this.allLoaded = true;
           return;
         }
-        this.NoticeList.push(...res.data.data.messages);
+        // this.NoticeList.push(...res.data.data.messages);
+        this.pushMoreNotice(res.data.data.messages);
         this.endDate = this.NoticeList[this.NoticeList.length - 1].SubDate;
         // 加载完数据后，必须重新计算列表的高度。
         this.$refs.loadmore.onBottomLoaded();
@@ -77,7 +84,8 @@ export default {
     var now = Date.now();
     this.startDate = now;
     Service.getNotices(now, 10, true).then(res => {
-      this.NoticeList.push(...res.data.data.messages);
+      // this.NoticeList.push(...res.data.data.messages); //本地组件的状态维护notice
+      this.initNoticeList(res.data.data.messages); // vuex触发突变，修改vuex中的NoticeList
       this.endDate = this.NoticeList[this.NoticeList.length - 1].SubDate;
     });
   },

@@ -7,11 +7,21 @@ export default new Vuex.Store({
   state: {
     LoginUser: sessionStorage.getItem('LoginUser')
       ? JSON.parse(sessionStorage.getItem('LoginUser'))
-      : null
+      : null,
+    NoticeList: []
   },
   mutations: {
     initUser(state, payload) {
       state.LoginUser = payload;
+    },
+    initNoticeList(state, payload) {
+      state.NoticeList = payload;
+    },
+    unshiftMoreNotice(state, payload) {
+      state.NoticeList.unshift(...payload);
+    },
+    pushMoreNotice(state, payload) {
+      state.NoticeList.push(...payload);
     }
   },
   actions: {},
