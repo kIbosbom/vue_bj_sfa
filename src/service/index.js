@@ -28,6 +28,9 @@ export default {
     return axios.get('/api/getUserProgress');
   },
   getNotices(date, limit, isloadelater) {
+    if (date) {
+      date = date.getTime();
+    }
     return axios.get('/api/message', {
       params: {
         date,

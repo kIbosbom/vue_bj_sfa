@@ -61,7 +61,7 @@ export default {
       Service.getNotices(this.startDate, 10, false).then(res => {
         // this.NoticeList.unshift(...res.data.data.messages);
         this.unshiftMoreNotice(res.data.data.messages);
-        this.startDate = this.NoticeList[0].SubDate;
+        this.startDate = new Date(this.NoticeList[0].SubDate);
         // 加载完数据后，必须重新计算列表的高度。
         this.$refs.loadmore.onTopLoaded();
       });
@@ -74,16 +74,17 @@ export default {
         }
         // this.NoticeList.push(...res.data.data.messages);
         this.pushMoreNotice(res.data.data.messages);
-        this.endDate = this.NoticeList[this.NoticeList.length - 1].SubDate;
+        this.endDate = new Date(
+          this.NoticeList[this.NoticeList.length - 1].SubDate
+        );
         // 加载完数据后，必须重新计算列表的高度。
         this.$refs.loadmore.onBottomLoaded();
       });
     }
   },
   created() {
-    var now = Date.now();
-    this.startDate = now;
-    Service.getNotices(now, 10, true).then(res => {
+    this.startDate = new Date();
+    Service.getNotices(new Date(), 10, true).then(res => {
       // this.NoticeList.push(...res.data.data.messages); //本地组件的状态维护notice
       this.initNoticeList(res.data.data.messages); // vuex触发突变，修改vuex中的NoticeList
       this.endDate = this.NoticeList[this.NoticeList.length - 1].SubDate;
