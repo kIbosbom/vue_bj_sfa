@@ -13,7 +13,7 @@
           <li v-for="item in NoticeList" :key="item.id" class="notice-item">
             <router-link :to="`/notice/${item.id}`">
               <div class="notice-wrap">
-                <i class="icon iconfont icon-dian"></i>
+                <i class="icon iconfont icon-dian" :class="{readed: item.isRead}"></i>
                 <div class="notice-bd">
                   <h3 class="notice-title">{{ item.title }}</h3>
                   <p class="notice-date">{{ item.SubDate | dateFormat }}</p>
@@ -113,6 +113,9 @@ export default {
         color: red;
         line-height: px2rem(20);
         font-size: px2rem(50);
+      }
+      i.readed {
+        color: #ccc;
       }
     }
   }
